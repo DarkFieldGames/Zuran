@@ -21,3 +21,5 @@ Temp/*
 !Library/unity editor resources
 !Library/metadata/
 *.suo
+*.db
+/Assets/SteamVR/Textures/Thumbs.db.meta
