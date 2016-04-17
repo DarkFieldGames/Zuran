@@ -30,11 +30,21 @@ public class RayCast : MonoBehaviour {
 				FPSAI fsapi = hit.transform.root.GetComponent<FPSAI>();
 				if(fsapi == null)
 					return;
+
 				GameObject gameObject = fsapi.gameObject;
-				if(transform && !string.IsNullOrEmpty(CurrentTag))
+
+				if(string.IsNullOrEmpty(gameObject.tag) || !gameObject.tag.EndsWith("Enemy", System.StringComparison.InvariantCultureIgnoreCase))
+					return;
+
+				if(transform && !string.IsNullOrEmpty(CurrentTag) && CurrentTag != gameObject.tag)
+				{
 					gameObject.tag = CurrentTag;
+					CurrentTag = string.Empty;
+				}
 				else if(capture && !string.IsNullOrEmpty(gameObject.tag))
+				{
 					CurrentTag = gameObject.tag;
+				}
 			}
 		}
 	}
