@@ -71,7 +71,7 @@ public class enemytag : MonoBehaviour {
 
     void FixedUpdate()
     {
-
+        FPSAI controller = this.GetComponent<FPSAI>();
         RedWalkerAI red_walk_ai = GetComponent<RedWalkerAI>();
         BlueWalkerAI blue_walk_ai = GetComponent<BlueWalkerAI>();
         GreenWalkerAI green_walk_ai = GetComponent<GreenWalkerAI>();
@@ -83,6 +83,7 @@ public class enemytag : MonoBehaviour {
 
         if (gameObject.tag == "RedEnemy")
         {
+            controller.walkSpeed = 6.0f;
             blue_walk_ai.enabled = false;
             red_walk_ai.enabled = true;
             green_walk_ai.enabled = false;
@@ -95,6 +96,7 @@ public class enemytag : MonoBehaviour {
 
         if (gameObject.tag == "BlueEnemy")
         {
+            controller.walkSpeed = 6.0f;
             blue_walk_ai.enabled = true;
             red_walk_ai.enabled = false;
             green_walk_ai.enabled = false;
@@ -130,4 +132,19 @@ public class enemytag : MonoBehaviour {
 
 
     }
+
+
+    void OnTriggerEnter(Collider c)
+    {
+        print("collide");
+        // Does the other collider have the tag "Player"? 
+        if (c.gameObject.tag == "Player")
+        {
+            // Yes it does. Destroy the entire gameObject.
+            print("you lose");
+            Application.Quit();
+        }
+
+    }
+
 }

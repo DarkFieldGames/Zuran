@@ -3,24 +3,41 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Camera))]
-public class RayCast : MonoBehaviour {
+public class RayCast : MonoBehaviour
+{
 
 	private Camera _camera;
 	private Image _cursorFillImage;
 
 	public int GuiAimSize = 12;
 	public int _rayDistance = 200;
-	public string CurrentTag = string.Empty;
+
+	private string _currentTag = String.Empty;
+
+	public String CurrentTag
+	{
+		get
+		{
+			return _currentTag;
+		}
+		set
+		{
+			_currentTag = value;
+			SetCursor(_currentTag);
+		}
+	}
 
 	// Use this for initialization
-	void Start () {
+	void Start()
+	{
 		_camera = GetComponent<Camera>();
 		_cursorFillImage = GameObject.FindGameObjectWithTag("Fill").GetComponent<Image>();
 		_cursorFillImage.color = Color.clear;
 	}
-	
+
 	// Update is called once per frame
-	void Update () {
+	void Update()
+	{
 		bool transform = Input.GetButtonDown("Transform");
 		bool capture = Input.GetButtonDown("Capture");
 
@@ -44,12 +61,10 @@ public class RayCast : MonoBehaviour {
 				{
 					gameObject.tag = CurrentTag;
 					CurrentTag = string.Empty;
-					SetCursor(CurrentTag);
 				}
 				else if(capture && !string.IsNullOrEmpty(gameObject.tag))
 				{
 					CurrentTag = gameObject.tag;
-					SetCursor(CurrentTag);
 				}
 			}
 		}
@@ -66,7 +81,7 @@ public class RayCast : MonoBehaviour {
 			var color = FindFullColorFromTag(currentTag);
 			color.a = 30;
 			_cursorFillImage.color = color;
-		}	
+		}
 	}
 
 	private Color FindFullColorFromTag(String tag)
