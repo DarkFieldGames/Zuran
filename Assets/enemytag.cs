@@ -136,13 +136,20 @@ public class enemytag : MonoBehaviour {
 
     void OnTriggerEnter(Collider c)
     {
-        print("collide");
         // Does the other collider have the tag "Player"? 
         if (c.gameObject.tag == "Player")
         {
             // Yes it does. Destroy the entire gameObject.
             print("you lose");
-            Application.Quit();
+			if (!GameObject.Find("UDed(Clone)"))
+			{
+				Instantiate(Resources.Load("Polish/UDed"));
+			}
+			var player = GameObject.Find("Player");
+			if (player) {
+				player.GetComponent<FPSCharacterController>().enabled = false;
+				//player.GetComponent<FPSMouseLook>().enabled = false;
+			}
         }
 
     }

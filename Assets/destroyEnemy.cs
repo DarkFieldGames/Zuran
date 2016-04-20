@@ -10,11 +10,8 @@ public class destroyEnemy : MonoBehaviour {
         Physics.Raycast(transform.position, fwd, out hit, maxDistance);
         if (Physics.Raycast(transform.position, fwd, maxDistance))
         {
-            if ((hit.transform.root.gameObject.transform.tag != gameObject.tag) && (hit.transform.root.gameObject.transform.tag != "Wall") && (hit.transform.root.gameObject.transform.tag != "Player"))
+            if ((hit.transform.root.gameObject.transform.tag != gameObject.tag) && (hit.transform.root.gameObject.transform.tag != "Wall") && (hit.transform.root.gameObject.transform.tag != "Player") && (hit.transform.root.gameObject.transform.tag != "RemoveTag"))
             {
-                print("destroy");
-                print(hit.transform.tag);
-                print(gameObject.tag);
                 //Destroy(hit.gameObject);
                 Destroy(this.transform.root.gameObject);
                 Destroy(hit.transform.root.gameObject);

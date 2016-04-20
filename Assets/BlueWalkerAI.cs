@@ -30,7 +30,6 @@ public class BlueWalkerAI : MonoBehaviour {
  //               Vector3 targetRotate = (0, 180, 0);
                 // this.transform.Rotate(0, 180, 0);
                 //this.transform.Rotate(Vector3.left, );
-                print("There is something in front of the object!");
             }
         }
 

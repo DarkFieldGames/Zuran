@@ -11,10 +11,8 @@ public class YellowWalkerAI : MonoBehaviour {
     public float chargeDistanceMax = 10.0f;
     public float chargeDistance = 0.0f;
     public float rotation;
-    public float chargeSpeed = 5.0f;
+    public float chargeSpeed = 6.0f;
     public float storedWalkSpeed = 0.0f;
-
- 
 
     void Update()
     {
@@ -25,7 +23,6 @@ public class YellowWalkerAI : MonoBehaviour {
 
         if (Physics.Raycast(transform.position, fwd, maxDistance) && rotating == true)
         {
-            print(hit.transform.tag);
             if (hit.transform.CompareTag("Player"))
             {
                 rotating = false;

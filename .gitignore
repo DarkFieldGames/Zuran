@@ -7,6 +7,8 @@ Temp/*
 *.csproj
 *.pidb
 *.sln
+Library/metadata/
+Library/ShaderCache/
 
 #Un-ignore these specific files
 !Library/*.asset
@@ -19,7 +21,4 @@ Temp/*
 !Library/guidmapper
 !Library/unity default resources
 !Library/unity editor resources
-!Library/metadata/
 *.suo
-*.db
-/Assets/SteamVR/Textures/Thumbs.db.meta

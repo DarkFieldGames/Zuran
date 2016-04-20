@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AnilateSpikesphere : MonoBehaviour {
+public class AnimateSpikesphere : MonoBehaviour {
 
 	public float speed = 3.5f;
 	public bool animate = true;

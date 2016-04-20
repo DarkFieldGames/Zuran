@@ -17,28 +17,28 @@ public class Player : MonoBehaviour {
         {
             // Yes it does. Destroy the entire gameObject.
             print("you lose");
-            Application.Quit();
+            //Application.Quit();
         }
 
         if (c.transform.root.gameObject.tag == "BlueEnemy")
         {
             // Yes it does. Destroy the entire gameObject. 
             print("you lose");
-            Application.Quit();
+            //Application.Quit();
         }
 
         if (c.transform.root.gameObject.tag == "GreenEnemy")
         {
             // Yes it does. Destroy the entire gameObject. 
             print("you lose");
-            Application.Quit();
+            //Application.Quit();
         }
 
         if (c.transform.root.gameObject.tag == "YellowEnemy")
         {
             // Yes it does. Destroy the entire gameObject.
             print("you lose");
-            Application.Quit();
+            //Application.Quit();
         }
 
     }
